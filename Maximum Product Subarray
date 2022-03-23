@@ -1,0 +1,17 @@
+Given an integer array nums, find a contiguous non-empty subarray within the array that has the largest product, and return the product.
+
+The test cases are generated so that the answer will fit in a 32-bit integer.
+
+A subarray is a contiguous subsequence of the array
+
+Example 1:
+
+Input: nums = [2,3,-2,4]
+Output: 6
+Explanation: [2,3] has the largest product 6.
+
+Solution:
+Calculate curmax = max(nums[i], nums[i]*curmax, nums[i]*curmin), and calculate curmin = min(nums[i], nums[i]*curmax, nums[i]*curmin).
+curmin is needed because if nums[i] is negative , then multiplying it by lowest negative curmin will give the highest vale;
+calculate maxprod = max(maxprod, curmax)
+return maxprod as answer.
